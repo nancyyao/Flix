@@ -58,8 +58,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                     print("response: \(responseDictionary)")
                     
                     self.movies = responseDictionary["results"] as? [NSDictionary]
-                    self.tableView.reloadData()
                     self.filteredData = self.movies
+                    self.tableView.reloadData()
                 }
             }
             else {
@@ -138,9 +138,9 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let posterPath = movie["poster_path"] as! String
         
         let baseURL = "http://image.tmdb.org/t/p/w500"
-        //let imageURL = NSURL(string: baseURL + posterPath)
-        let imageURL = (string: baseURL + posterPath)
-        let imageRequest = NSURLRequest(URL: NSURL(string: imageURL)!) //
+        let imageURL = NSURL(string: baseURL + posterPath)
+        //let imageURL = (string: baseURL + posterPath)
+        let imageRequest = NSURLRequest(URL: imageURL!) //
         
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
@@ -161,20 +161,12 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 cell.posterView.image = image
             }
             }, failure: { (imageRequest, imageResponse, error) -> Void in
-                cell.posterView.setImageWithURL(NSURL(string: imageURL)!)
+                cell.posterView.setImageWithURL(imageURL!)
         })
         
         return cell;
     }
     
-    /*
-     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-     filteredTitle = searchText.isEmpty ? data : data.filter({(dataString: String) -> Bool in
-     return dataString.rangeOfString(searchText, options: .CaseInsensitiveSearch) != nil
-     })
-     
-     }
-     */
     // This method updates filteredData based on the text in the Search Box
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         // When there is no text, filteredData is the same as the original data
@@ -203,10 +195,44 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        var destinationViewController = segue.destinationViewController as! CollectionViewController
-        
-        destinationViewController.movies = self.movies
-        
+        /*
+         var destinationViewController = segue.destinationViewController as! CollectionViewController
+         
+         destinationViewController.movies = self.movies
+         */
+        if let destinationViewController = segue.destinationViewController as? CollectionViewController {
+            destinationViewController.movies = self.movies
+        }
+        else if let destinationViewController = segue.destinationViewController as? DetailViewController {
+            
+            var indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
+            let movie = movies![indexPath!.row]
+            if let posterPath = movie["poster_path"] as? String {
+                let baseURL = "http://image.tmdb.org/t/p/w500"
+                //let imageURL = NSURL(string: baseURL + posterPath)
+                let imageURL = (string: baseURL + posterPath)
+                let imageRequest = NSURLRequest(URL: NSURL(string: imageURL)!) //
+                
+                destinationViewController.photoUrl = imageURL
+            }
+            /*
+             let posterPath = movie["poster_path"] as! String
+             
+             let baseURL = "http://image.tmdb.org/t/p/w500"
+             //let imageURL = NSURL(string: baseURL + posterPath)
+             let imageURL = (string: baseURL + posterPath)
+             let imageRequest = NSURLRequest(URL: NSURL(string: imageURL)!) //
+             
+             var indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
+             
+             let post = posts[indexPath!.row]
+             
+             if let photos = post.valueForKeyPath("photos") as? [NSDictionary] {
+             let imageUrlString = photos[0].valueForKeyPath("original_size.url") as? String
+             destinationViewController.photoUrl = imageUrlString
+             */
+            
+        }
     }
     
 }

@@ -37,11 +37,11 @@
                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="127" id="l4I-5K-ngT" customClass="MovieCell" customModule="FlixApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="127" id="l4I-5K-ngT" customClass="MovieCell" customModule="FlixApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="136" width="375" height="127"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l4I-5K-ngT" id="R0w-Ct-YzB">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="126.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="126.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bdg-HO-QXF">
@@ -68,6 +68,7 @@
                                             <outlet property="overviewLabel" destination="Bdg-HO-QXF" id="Tqe-wR-IWx"/>
                                             <outlet property="posterView" destination="wXc-j7-3at" id="LNd-3b-axM"/>
                                             <outlet property="titleLabel" destination="1yg-oN-rR1" id="YYN-uL-1Nh"/>
+                                            <segue destination="pdx-8w-myR" kind="push" id="oph-WZ-WX1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -97,6 +98,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="662.5" y="330.5"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="ghd-Xl-fbg">
+            <objects>
+                <viewController id="pdx-8w-myR" customClass="DetailViewController" customModule="FlixApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="08D-w0-zwp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="7zI-hT-Nxb">
+                                <rect key="frame" x="16" y="82" width="343" height="513"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yF0-Ao-9JF"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="detailView" destination="08D-w0-zwp" id="ClG-Nk-cE1"/>
+                        <outlet property="largeImage" destination="7zI-hT-Nxb" id="hsS-Yh-sIX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KsI-4W-Co4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="662.5" y="1092.5"/>
         </scene>
         <!--Upcoming-->
         <scene sceneID="6TH-M9-NEi">
@@ -154,6 +181,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cll-ii-n8v" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="79T-8x-BVN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

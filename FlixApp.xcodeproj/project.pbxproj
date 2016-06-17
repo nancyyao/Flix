@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5A98F64D82ECCDDB816B9997 /* Pods_FlixApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1C50B7B4260AF3F1307B6B /* Pods_FlixApp.framework */; };
 		F99C633B1D134C4500CAC957 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99C633A1D134C4500CAC957 /* CollectionViewController.swift */; };
+		F99C63411D13D10600CAC957 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99C63401D13D10600CAC957 /* DetailViewController.swift */; };
 		F9D1410B1D11EF9300CA389D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D1410A1D11EF9300CA389D /* AppDelegate.swift */; };
 		F9D141101D11EF9300CA389D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9D1410E1D11EF9300CA389D /* Main.storyboard */; };
 		F9D141121D11EF9300CA389D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9D141111D11EF9300CA389D /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		0E1C50B7B4260AF3F1307B6B /* Pods_FlixApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlixApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C835CFB647C05B5CBBFA00DB /* Pods-FlixApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlixApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlixApp/Pods-FlixApp.release.xcconfig"; sourceTree = "<group>"; };
 		F99C633A1D134C4500CAC957 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		F99C63401D13D10600CAC957 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F9D141071D11EF9300CA389D /* FlixApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlixApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9D1410A1D11EF9300CA389D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9D1410F1D11EF9300CA389D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			children = (
 				F99C633A1D134C4500CAC957 /* CollectionViewController.swift */,
 				F9D1411C1D11F00A00CA389D /* MoviesViewController.swift */,
+				F99C63401D13D10600CAC957 /* DetailViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				F9D1412D1D13122C00CA389D /* MovieCollectionCell.swift in Sources */,
 				F9D1410B1D11EF9300CA389D /* AppDelegate.swift in Sources */,
 				F9D1411D1D11F00A00CA389D /* MoviesViewController.swift in Sources */,
+				F99C63411D13D10600CAC957 /* DetailViewController.swift in Sources */,
 				F9D141201D11FEE300CA389D /* MovieCell.swift in Sources */,
 				F99C633B1D134C4500CAC957 /* CollectionViewController.swift in Sources */,
 			);
