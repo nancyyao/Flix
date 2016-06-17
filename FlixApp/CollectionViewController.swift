@@ -45,6 +45,15 @@ extension CollectionViewController: UICollectionViewDataSource {
         
         return cell;
     }
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        if let destinationViewController = segue.destinationViewController as? DetailViewController {
+            let indexPath = collectionView.indexPathForCell(sender as! UICollectionViewCell)
+            let movie = movies![indexPath!.item]
+            if let posterPath = movie["poster_path"] as? String {
+                destinationViewController.photoUrl = posterPath }
+            
+        }
+    }
 }
 
 /*

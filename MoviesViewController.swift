@@ -192,45 +192,15 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.reloadData()
     }
     
-    
-    
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        /*
-         var destinationViewController = segue.destinationViewController as! CollectionViewController
-         
-         destinationViewController.movies = self.movies
-         */
         if let destinationViewController = segue.destinationViewController as? CollectionViewController {
             destinationViewController.movies = self.movies
         }
         else if let destinationViewController = segue.destinationViewController as? DetailViewController {
-            
             var indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
-            let movie = movies![indexPath!.row]
+            let movie = filteredData![indexPath!.row]
             if let posterPath = movie["poster_path"] as? String {
-                let baseURL = "http://image.tmdb.org/t/p/w500"
-                //let imageURL = NSURL(string: baseURL + posterPath)
-                let imageURL = (string: baseURL + posterPath)
-                let imageRequest = NSURLRequest(URL: NSURL(string: imageURL)!) //
-                
-                destinationViewController.photoUrl = imageURL
-            }
-            /*
-             let posterPath = movie["poster_path"] as! String
-             
-             let baseURL = "http://image.tmdb.org/t/p/w500"
-             //let imageURL = NSURL(string: baseURL + posterPath)
-             let imageURL = (string: baseURL + posterPath)
-             let imageRequest = NSURLRequest(URL: NSURL(string: imageURL)!) //
-             
-             var indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
-             
-             let post = posts[indexPath!.row]
-             
-             if let photos = post.valueForKeyPath("photos") as? [NSDictionary] {
-             let imageUrlString = photos[0].valueForKeyPath("original_size.url") as? String
-             destinationViewController.photoUrl = imageUrlString
-             */
+                destinationViewController.photoUrl = posterPath }
             
         }
     }
