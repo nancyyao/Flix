@@ -2,7 +2,7 @@
 
 Flix is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: 11.5 hours spent in total
+Time spent: 15 hours spent in total
 
 ## User Stories
 
@@ -20,35 +20,36 @@ The following **optional** features are implemented:
 - [x] User can search for a movie.
 - [x] All images fade in as they are loading.
 - [x] User can view the large movie poster by tapping on a cell.
-- [ ] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
-- [ ] Customize the selection effect of the cell.
-- [ ] Customize the navigation bar.
-- [ ] Customize the UI.
+- [x] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
+- [x] Customize the selection effect of the cell.
+- [x] Customize the navigation bar.
+- [x] Customize the UI.
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] Home screen that leads to Now Playing and Upcoming Releases pages.
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. How to change it to tab bar controller and still have both pages get all the same data (currently passed with prepareforSegue functions)
+2. Making code more efficient (less repeated between the two pages)
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/rXyBhBt.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/Xk8arg5.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
 Describe any challenges encountered while building the app.
+It was a challenge knowing where I could refer to different things (such as movie features), and keeping track of so many view controllers and how they were connected to each other.
 
 ## Credits
 
-List an 3rd party libraries, icons, graphics, or other assets you used in your app.
+List any 3rd party libraries, icons, graphics, or other assets you used in your app.
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
 - [MBProgressHUD](https://github.com/jdg/MBProgressHUD)
