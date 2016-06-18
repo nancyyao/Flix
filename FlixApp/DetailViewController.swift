@@ -11,12 +11,15 @@ import UIKit
 class DetailViewController: UIViewController {
     @IBOutlet weak var largeImage: UIImageView!
     @IBOutlet var detailView: UIView!
+    @IBOutlet weak var detailTitleLabel: UILabel!
     var photoUrl: String?
+    var detailTitle: String?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //largeImage.setImageWithURL(NSURL(string:photoUrl!)!)
+        self.detailTitleLabel.text = detailTitle
+
         let smallImageUrl = "https://image.tmdb.org/t/p/w45" + photoUrl!
         let largeImageUrl = "https://image.tmdb.org/t/p/original" + photoUrl!
         let smallImageRequest = NSURLRequest(URL: NSURL(string: smallImageUrl)!)
@@ -57,8 +60,6 @@ class DetailViewController: UIViewController {
                 // do something for the failure condition
                 // possibly try to get the large image
         })
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {

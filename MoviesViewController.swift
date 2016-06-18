@@ -65,8 +65,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             else {
                 self.networkErrorView.hidden = false }
         })
-        
-        
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
@@ -115,8 +113,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             refreshControl.endRefreshing()
         });
         task.resume()
+        
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -144,8 +142,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
-        //cell.posterView.setImageWithURL(imageURL!)
-        
         
         cell.posterView.setImageWithURLRequest(imageRequest, placeholderImage: nil, success: { (imageRequest, imageResponse, image) -> Void in
             // imageResponse will be nil if the image is cached
@@ -167,7 +163,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         return cell;
     }
     
-    // This method updates filteredData based on the text in the Search Box
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         // When there is no text, filteredData is the same as the original data
         if searchText.isEmpty {
@@ -193,20 +188,19 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        if let destinationViewController = segue.destinationViewController as? CollectionViewController {
-            destinationViewController.movies = self.movies
-        }
-        else if let destinationViewController = segue.destinationViewController as? DetailViewController {
-            var indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
+        if let destinationViewController = segue.destinationViewController as? DetailViewController {
+            let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
             let movie = filteredData![indexPath!.row]
             if let posterPath = movie["poster_path"] as? String {
-                destinationViewController.photoUrl = posterPath }
+                destinationViewController.photoUrl = posterPath
+                let title = movie["title"] as! String
+                destinationViewController.detailTitle = title }
             
         }
+        
     }
     
 }
-
 
 /*
  // MARK: - Navigation
