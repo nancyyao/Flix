@@ -1,6 +1,6 @@
-# Project 2 - Flix
+# Flix iOS App
 
-Flix is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
+Flix is a movie listings app that uses the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
 Time spent: 15 hours spent in total
 
